@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import faceMemoji from "../../assets/ad-image.svg";
 
-const AdvertBanner = () => {
+const MessageBanner = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -30,4 +30,4 @@ const AdvertBanner = () => {
     );
 };
 
-export default AdvertBanner;
+export default MessageBanner;

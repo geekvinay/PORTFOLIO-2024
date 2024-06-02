@@ -1,4 +1,4 @@
-import AdvertBanner from "../AdvertBanner/AdvertBanner";
+import MessageBanner from "../MessageBanner/MessageBanner";
 import { Icon } from "@iconify/react";
 import linkedinIcon from '@iconify-icons/mdi/linkedin';
 import twitterIcon from '@iconify-icons/mdi/twitter';
@@ -9,7 +9,7 @@ import emailIcon from '@iconify-icons/mdi/email';
 const Hero = () => {
   return (
     <section className='min-h-screen pt-[8rem] w-screen px-[10rem] flex flex-col items-center justify-start'>
-      <AdvertBanner />
+      <MessageBanner />
       <section className="hero-intro py-[5rem] w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="hero-text flex flex-col justify-center">
           <h1 className="text-[2.5rem] font-bold text-gray-900 mb-4 leading-tight">
