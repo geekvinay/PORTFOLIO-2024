@@ -4,3 +4,9 @@ export enum sectionEnum {
     "BLOG" = "BLOG",
     "CONTACT" = "CONTACT"
 }
+
+export enum expSecEnum {
+    "PhyiscsWallah" = "PhyiscsWallah",
+    "Vedantu" = "Vedantu",
+    "Lokal" = "Lokal",
+}

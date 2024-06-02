@@ -11,10 +11,10 @@ const Header = ({ currSec, setCurrSec }: { currSec: unknown; setCurrSec: any; })
             </div>
 
             <div className="nav-wrapper text-gray-900 text-base font-semibold flex items-center justify-start list-none">
-                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.HERO ? "opacity-90" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.HERO); }}>HERO</li>
-                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.ABOUT ? "opacity-90" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.ABOUT); }}>ABOUT</li>
-                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.BLOG ? "opacity-90" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.BLOG); }}>BLOG</li>
-                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.CONTACT ? "opacity-90" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.CONTACT); }}>CONTACT</li>
+                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.HERO ? "opacity-90 font-bold" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.HERO); }}>HERO</li>
+                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.ABOUT ? "opacity-90 font-bold" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.ABOUT); }}>ABOUT</li>
+                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.BLOG ? "opacity-90 font-bold" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.BLOG); }}>BLOG</li>
+                <li className={`px-2 transition-all duration-100 hover:cursor-pointer hover:opacity-90 ${currSec == sectionEnum.CONTACT ? "opacity-90 font-bold" : "opacity-50"}`} onClick={() => { setCurrSec(sectionEnum.CONTACT); }}>CONTACT</li>
             </div>
         </section>
     );

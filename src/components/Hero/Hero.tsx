@@ -13,7 +13,7 @@ const Hero = () => {
       <section className="hero-intro py-[5rem] w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="hero-text flex flex-col justify-center">
           <h1 className="text-[2.5rem] font-bold text-gray-900 mb-4 leading-tight">
-            Hi! 👋 My name is <span className="text-blue-400 text-nowrap">VINAY KISHORE</span> and I am a software engineer.
+            Hi! 👋 My name is <span className="text-blue-400 text-nowrap">VINAY KISHORE</span> and I am a <span className="text-red-400 text-nowrap">software engineer</span>.
           </h1>
         </div>
         <div className="w-full flex justify-end items-center space-x-4 px-8">

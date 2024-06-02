@@ -14,7 +14,7 @@ const AdvertBanner = () => {
                 <img
                     src={faceMemoji}
                     alt="Face Emoji"
-                    className={`ad-image h-[110%] w-[15rem] object-cover transform transition-transform duration-150 ${isHovered ? 'scale-125' : ''}`}
+                    className={`ad-image motion-safe:animate-bounce h-[110%] w-[15rem] object-cover transform transition-transform duration-150 ${isHovered ? 'scale-125 animate-none' : ''}`}
                     style={{ transformOrigin: 'bottom' }}
                 />
             </div>
