@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useEffect, useRef } from "react";
 import { Icon } from '@iconify/react';
 import briefcaseIcon from '@iconify-icons/mdi/briefcase';
 import clockIcon from '@iconify-icons/mdi/clock';
@@ -10,15 +11,15 @@ import { expSecEnum } from "../../common/enum";
 const Experience = () => {
     const [currSec, setCurrSec] = useState(expSecEnum.PhyiscsWallah);
     const experiences = [expSecEnum.PhyiscsWallah, expSecEnum.Vedantu, expSecEnum.Lokal];
-    const sectionsRef = useRef({});
+    const sectionsRef = useRef({}) as any;
 
-    const handleIntersect = (exp, inView) => {
+    const handleIntersect = (exp: any, inView: any) => {
         if (inView) {
             setCurrSec(exp);
         }
     };
 
-    const scrollToSection = (element) => {
+    const scrollToSection = (element: any) => {
         const topOffset = 10 * 16; // 10rem in pixels (assuming 1rem = 16px)
         const elementTop = element.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
@@ -27,7 +28,7 @@ const Experience = () => {
         });
     };
 
-    const handleSectionChange = (exp) => {
+    const handleSectionChange = (exp: any) => {
         setCurrSec(exp);
         if (sectionsRef.current[exp]) {
             scrollToSection(sectionsRef.current[exp]);
