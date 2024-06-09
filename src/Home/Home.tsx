@@ -11,7 +11,7 @@ const Home = () => {
   const [currSec, setCurrSec] = useState(sectionEnum.HERO);
 
   return (
-    <section className="relative text-gray-600 bg-white work-sans w-screen min-h-screen h-fit overflow-x-hidden">
+    <section className="relative scroll-smooth text-gray-600 bg-white work-sans w-screen min-h-screen h-fit">
       <Header currSec={currSec} setCurrSec={setCurrSec} />
       <Hero />
       <About />

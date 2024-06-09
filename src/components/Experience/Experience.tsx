@@ -23,8 +23,10 @@ const Experience = () => {
     };
 
     const scrollToSection = (element: any) => {
-        const topOffset = 10 * 16; // 10rem in pixels (assuming 1rem = 16px)
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const topOffset = 10 * 16;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY - 200;
+        console.log('elementTop: ', elementTop);
+        console.log('elementTop - topOffset: ', elementTop - topOffset);
         window.scrollTo({
             top: elementTop - topOffset,
             behavior: 'smooth'
@@ -33,9 +35,7 @@ const Experience = () => {
 
     const handleSectionChange = (exp: any) => {
         setCurrSec(exp);
-        if (sectionsRef.current[exp]) {
-            scrollToSection(sectionsRef.current[exp]);
-        }
+        scrollToSection(sectionsRef.current[exp]);
     };
 
     const { ref: PWRef, inView: PWinView } = useInView({ threshold: 0.5 }) as any;
@@ -60,7 +60,7 @@ const Experience = () => {
     sectionsRef.current[expSecEnum.Lokal] = LokalRef.current;
 
     return (
-        <section className="relative px-8 sm:px-6 md:px-10 lg:px-20 min-h-screen w-full grid grid-rows-1 lg:grid-cols-2 gap-8">
+        <section id="experience-section" className="relative px-8 sm:px-6 md:px-10 lg:px-20 min-h-screen w-full grid grid-rows-1 lg:grid-cols-2 gap-8">
             {/* Experience Navigation */}
             <section className="experience-left hidden lg:flex h-[60vh] my-[10rem] w-full flex-col justify-between sticky top-[10rem]">
                 <h3 className="text-4xl font-bold text-gray-900 mb-8">Experience</h3>
@@ -98,14 +98,16 @@ const Experience = () => {
                         <h4 className="text-xl font-medium text-gray-700 mb-2">Physics Wallah</h4>
                     </div>
                     <p className="text-lg text-gray-500 flex items-center mb-4">
-                        <Icon icon={clockIcon} className="mr-2 text-[2rem] font-semibold hidden md:inline-block" />
+                        <Icon icon={clockIcon}
+                            className="mr-2 text-[2rem] font-semibold hidden md:inline-block" />
                         July 2023 – present | Bangalore, India
                     </p>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
                         <li>Developed and deployed PDF-to-image conversion flow using AWS S3, Lambda, achieving a 60% reduction in conversion times.</li>
                         <li>Helped migrate two P1 services to microservices, reducing main service traffic by over 25 million requests/day; implemented routing logic for seamless transition, resulting in a 30% decrease in latency.</li>
                         <li>Helped automate student doubt allocation to SMEs; contributed to architecture, database design, and code implementation; boosted SME efficiency, reducing response time by 30 minutes per query.</li>
-                        <li>Led ad-hoc tasks like log enhancements, leading to a 15% cost reduction of Datadog; actively engaged in technical discussions, aiding peers and fostering collaboration.</li>
+                        <li>Led ad-hoc tasks like log enhancements, leading to a 15% cost reduction of Datadog; actively
+                            engaged in technical discussions, aiding peers and fostering collaboration.</li>
                     </ul>
                 </div>
                 <div ref={VedantuRef} className="exp-wrapper my-[5rem]">
@@ -120,7 +122,7 @@ const Experience = () => {
                     </p>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
                         <li>Developed and integrated webhooks between Facebook and internal Salesforce, enhancing data synchronization and streamlining sales processes at Vedantu.</li>
-                        <li>Wrote MongoDB scripts to optimize data management, leading to reduction of retrieval time and improved database performance.</li>
+                        <li>Wrote MongoDB scripts to optimize data management, leading to a reduction of retrieval time and improved database performance.</li>
                     </ul>
                 </div>
                 <div ref={LokalRef} className="exp-wrapper my-[5rem]">
@@ -136,3 +138,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

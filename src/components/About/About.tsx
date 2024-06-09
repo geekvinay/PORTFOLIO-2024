@@ -2,7 +2,7 @@ import pwLogo from "../../assets/pw-logo.svg";
 
 const About = () => {
   return (
-    <div className="w-full min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 py-8 sm:py-12 md:py-16 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-12">
+    <section id="about-section" className="w-full min-h-screen px-4 sm:px-6 md:px-10 lg:px-20 py-8 sm:py-12 md:py-16 grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-12">
       <div className="flex flex-col justify-center px-8">
         <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 mb-6">How It Started</h3>
         <p className="text-base sm:text-lg text-gray-800 leading-relaxed mb-4">
@@ -21,7 +21,7 @@ const About = () => {
           It's been an enriching experience filled with challenges and growth, and I'm grateful for every moment of it.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 
