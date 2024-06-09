@@ -1,6 +1,7 @@
 export enum sectionEnum {
     "HERO" = "HERO",
     "ABOUT" = "ABOUT",
+    "EXPERIENCE" = "EXPERIENCE",
     "BLOG" = "BLOG",
     "CONTACT" = "CONTACT"
 }

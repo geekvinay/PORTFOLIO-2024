@@ -11,13 +11,13 @@ const Home = () => {
   const [currSec, setCurrSec] = useState(sectionEnum.HERO);
 
   return (
-    <section className="relative text-gray-600 bg-white work-sans w-screen min-h-screen h-fit">
+    <section className="relative text-gray-600 bg-white work-sans w-screen min-h-screen h-fit overflow-x-hidden">
       <Header currSec={currSec} setCurrSec={setCurrSec} />
       <Hero />
       <About />
       {/* <hr className="border-t-2 border-gray-200 rounded-xl mx-[10rem]" /> */}
       <Experience />
-      <hr className="border-t-2 border-gray-200 rounded-xl mx-[10rem]" />
+      <hr className="border-t-2 border-gray-200 rounded-xl mx-[2rem] md:mx-[10rem]" />
       <Footer />
     </section>
   );

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useRef } from "react";
 import { Icon } from '@iconify/react';
-import briefcaseIcon from '@iconify-icons/mdi/briefcase';
 import clockIcon from '@iconify-icons/mdi/clock';
 import PWLogo from "../../assets/pw-logo.svg";
 import VedantuLogo from "../../assets/Vedantu.svg";
@@ -11,7 +10,11 @@ import { expSecEnum } from "../../common/enum";
 const Experience = () => {
     const [currSec, setCurrSec] = useState(expSecEnum.PhyiscsWallah);
     const experiences = [expSecEnum.PhyiscsWallah, expSecEnum.Vedantu, expSecEnum.Lokal];
-    const sectionsRef = useRef({}) as any;
+    const sectionsRef = useRef<any>({
+        [expSecEnum.PhyiscsWallah]: null,
+        [expSecEnum.Vedantu]: null,
+        [expSecEnum.Lokal]: null
+    });
 
     const handleIntersect = (exp: any, inView: any) => {
         if (inView) {
@@ -35,9 +38,9 @@ const Experience = () => {
         }
     };
 
-    const { ref: PWRef, inView: PWinView } = useInView({ threshold: 0.5 });
-    const { ref: VedantuRef, inView: VedantuinView } = useInView({ threshold: 0.5 });
-    const { ref: LokalRef, inView: LokalinView } = useInView({ threshold: 0.5 });
+    const { ref: PWRef, inView: PWinView } = useInView({ threshold: 0.5 }) as any;
+    const { ref: VedantuRef, inView: VedantuinView } = useInView({ threshold: 0.5 }) as any;
+    const { ref: LokalRef, inView: LokalinView } = useInView({ threshold: 0.5 }) as any;
 
     useEffect(() => {
         if (PWinView) handleIntersect(expSecEnum.PhyiscsWallah, PWinView);
@@ -51,10 +54,15 @@ const Experience = () => {
         if (LokalinView) handleIntersect(expSecEnum.Lokal, LokalinView);
     }, [LokalinView]);
 
+    // Assign refs to section elements
+    sectionsRef.current[expSecEnum.PhyiscsWallah] = PWRef.current;
+    sectionsRef.current[expSecEnum.Vedantu] = VedantuRef.current;
+    sectionsRef.current[expSecEnum.Lokal] = LokalRef.current;
+
     return (
-        <section className="relative px-[10rem] min-h-screen w-full grid grid-rows-1 grid-cols-2 gap-8">
+        <section className="relative px-8 sm:px-6 md:px-10 lg:px-20 min-h-screen w-full grid grid-rows-1 lg:grid-cols-2 gap-8">
             {/* Experience Navigation */}
-            <section className="experience-left h-[60vh] my-[10rem] w-full flex flex-col justify-between sticky top-[10rem]">
+            <section className="experience-left hidden lg:flex h-[60vh] my-[10rem] w-full flex-col justify-between sticky top-[10rem]">
                 <h3 className="text-4xl font-bold text-gray-900 mb-8">Experience</h3>
                 <div className="experience-nav w-full h-fit">
                     {experiences.map((exp) => (
@@ -90,7 +98,7 @@ const Experience = () => {
                         <h4 className="text-xl font-medium text-gray-700 mb-2">Physics Wallah</h4>
                     </div>
                     <p className="text-lg text-gray-500 flex items-center mb-4">
-                        <Icon icon={clockIcon} className="mr-2" />
+                        <Icon icon={clockIcon} className="mr-2 text-[2rem] font-semibold hidden md:inline-block" />
                         July 2023 – present | Bangalore, India
                     </p>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
@@ -102,12 +110,12 @@ const Experience = () => {
                 </div>
                 <div ref={VedantuRef} className="exp-wrapper my-[5rem]">
                     <div className="flex items-center mb-4">
-                        <img src={VedantuLogo} alt="Physics Wallah" className="h-[4rem] object-cover mx-4" />
+                        <img src={VedantuLogo} alt="Vedantu" className="h-[4rem] object-cover mx-4" />
                         <h3 className="text-2xl font-semibold">Software Developer Engineer Intern</h3>
                     </div>
                     <h4 className="text-xl font-medium text-gray-700 mb-2">Vedantu Innovations Pvt. Ltd.</h4>
                     <p className="text-lg text-gray-500 flex items-center mb-4">
-                        <Icon icon={clockIcon} className="mr-2" />
+                        <Icon icon={clockIcon} className="mr-2 text-[2rem] font-semibold hidden md:inline-block" />
                         May 2023 - July 2023 | Bangalore, India
                     </p>
                     <ul className="list-disc list-inside text-gray-600 space-y-2">
@@ -117,10 +125,10 @@ const Experience = () => {
                 </div>
                 <div ref={LokalRef} className="exp-wrapper my-[5rem]">
                     <div className="flex items-center mb-4">
-                        <Icon icon={briefcaseIcon} className="text-gray-600 w-8 h-8 mr-4" />
+                        {/* <Icon icon={briefcaseIcon} className="text-gray text-[3rem] font-semibold-600 w-8 h-8 mr-4" /> */}
                         <h3 className="text-2xl font-semibold">Coming Soon...</h3>
                     </div>
-                    <p className="text-lg text-gray-600">Details about this experience will be added soon.</p>
+                    <p className="text-lg text-gray-600">More Details about me will be added soon.</p>
                 </div>
             </section>
         </section>
